@@ -1,0 +1,23 @@
+Sub CropAllImagesOnActiveSheet()
+    Dim ws As Worksheet
+    Dim shp As Shape
+    
+    ' Get the reference to the active sheet
+    Set ws = ActiveSheet
+    
+    ' Loop through each shape in the active sheet
+    For Each shp In ws.Shapes
+        ' Check if the shape is an image
+        If shp.Type = msoPicture Then
+            ' Crop the image
+            ' Adjust left cropping value
+            shp.PictureFormat.CropLeft = 210 
+            ' Adjust top cropping value
+            shp.PictureFormat.CropTop = 89 
+            ' Adjust right cropping value
+            shp.PictureFormat.CropRight = 15 
+            ' Adjust bottom cropping value
+            shp.PictureFormat.CropBottom = 280 
+        End If
+    Next shp
+End Sub
